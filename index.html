@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Count App</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="textarea">
+    <textarea id="inputta" cols="40" rows="10" placeholder="What's Happening?">
+      </textarea>
+  </div>
+
+  <bold>
+    <p>
+      characters left:<span id="characters">0</span>/280
+    </p>
+  </bold>
+</body>
+
+<script>
+  const inputtext = document.getElementById("inputta");
+  const maxlength = 280;
+
+  inputtext.onkeyup = () => {
+
+    const counter = inputtext.value.length;
+    const characterleft = maxlength - counter;
+    document.getElementById("characters").innerHTML = counter;
+
+    if (characterleft < 0) {
+      inputtext.style.borderColor = "red";
+      inputtext.style.outlineColor = "red";
+    } else {
+      inputtext.removeAttribute("style");
+    }
+
+  }
+
+</script>
+
+</html>
